@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hello Styx!</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <script>
+    function resizeHeaderOnScroll() {
+      const distanceY = window.pageYOffset || document.documentElement.scrollTop,
+      shrinkOn = 200,
+      headerEl = document.getElementById('js-header');
+      if (distanceY > shrinkOn) {
+        headerEl.classList.add("smaller");
+      } else {
+        headerEl.classList.remove("smaller");
+      }
+    }
+
+    window.addEventListener('scroll', resizeHeaderOnScroll);
+  </script>
+
+  <div id="wrapper">
+    <header id="js-header">
+        <div class="container clearfix">
+            <h1 id="logo">LRFC</h1>
+            <nav>
+                <a href="#bacon">HOME</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="main">
+        <div id="content">
+            <section>
+                <html lang="en">
+                <head>
+                  <meta charset="utf-8" />
+                  <title>Table Style</title>
+                  <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+                </head>
+
+                <body>
+                <div class="table-title">
+                <h3>Lista RFC</h3>
+                </div>
+                <table class="table-fill">
+                <thead>
+                <%= for rfc <- @rfcs do %>
+                  <tr>
+                    <td><%= rfc.rfc %></td>
+                    <td><%= rfc.sfcn %></td>
+                    <td><%= rfc.subcontratacion %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+                <tfoot> <tr> <th ALIGN=RIGHT COLSPAN=5><%= pagination_links(@page) %> </th> </tfood>
+                </table>
+                  </body>
+            </section>
+       </div>
+    </div>
+     <footer>
+          <div class="container clearfix">
+            <div class ="col" id="col-1">
+              <ul>
+                <li>APPLES</li>
+                <li><a href="#0">Home</a></li>        
+                <li><a href="#0">Services</a></li> 
+                <li><a href="#0">Contact</a></li> 
+                <li><a href="#0">Sitemap</a></li> 
+              </ul>
+            </div>
+            <div  class ="col" id="col-2">
+              <ul>
+                <li>SOCIAL</li>
+                <li><a href="#0">Facebook</a></li>      
+                <li><a href="#0">Twitter</a></li> 
+                <li><a href="#0">LinkedIn</a></li> 
+              </ul>
+            </div>
+            <div  class ="col" id="col-3">
+              <ul>
+                <li>SERVICES</li>
+                <li><a href="#0">Bacon</a></li>        
+                <li><a href="#0">Sausage Services</a></li> 
+                <li><a href="#0">Cheese</a></li> 
+                <li><a href="#0">Cider Apples</a></li> 
+              </ul>
+            </div>
+            <div id="copy">&#xa9; Designed and built by <a href="https://twitter.com/lilianakastilio">@liianakastilio</a> 2013 - 2014</div>
+          </div>
+    </footer>
+  </div>
+</html>
