@@ -23,7 +23,7 @@ defmodule Styx.Mixfile do
   def application do
     [
       mod: {Styx.Application, []},
-      extra_applications: [:logger,:scrivener_ecto, :runtime_tools]
+      extra_applications: [:logger,:con_cache,:scrivener_ecto, :runtime_tools]
     ]
   end
 
@@ -37,6 +37,7 @@ defmodule Styx.Mixfile do
   defp deps do
     [ {:scrivener_ecto, "~> 1.0"},
       {:postgrex, ">= 0.0.0"},
+      {:con_cache, "~> 0.12.1"},
       {:ecto, "~> 2.1"}
     ]
   end

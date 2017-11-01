@@ -14,6 +14,7 @@ defmodule Styx.Application do
 
     Supervisor.start_link([
       supervisor(Styx.Repo, []),
+      supervisor(ConCache, [[], [name: :l_rfc]])
     ], strategy: :one_for_one, name: Styx.Supervisor)
   end
 end
