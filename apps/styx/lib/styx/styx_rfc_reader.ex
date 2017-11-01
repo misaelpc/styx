@@ -39,7 +39,7 @@ defmodule Styx.RfcReader do
 				case result do
 					[rfc,sncf,subc] ->
 						Logger.info rfc
-						ConCache.put(:l_rfc, rfc, {sncf,subc})
+						ConCache.dirty_put(:l_rfc,rfc, {sncf,subc})
 					_ ->
 						[rfc: "",sfcn: "",subcontratacion: ""]					
 				end
